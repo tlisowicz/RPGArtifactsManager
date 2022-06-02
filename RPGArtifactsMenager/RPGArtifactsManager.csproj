@@ -81,6 +81,12 @@
     <Compile Include="DatabaseRPG\RPGContext.cs" />
     <Compile Include="DatabaseRPG\UtilTables\CategoryProperty.cs" />
     <Compile Include="DatabaseRPG\UtilTables\InstanceProperty.cs" />
+    <Compile Include="InstanceEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstanceEditor.Designer.cs">
+      <DependentUpon>InstanceEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202205261940291_mig1.cs" />
     <Compile Include="Migrations\202205261940291_mig1.designer.cs">
       <DependentUpon>202205261940291_mig1.cs</DependentUpon>
@@ -96,23 +102,17 @@
     <Compile Include="Viewer.designer.cs">
       <DependentUpon>Viewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="LoginControl.Designer.cs">
-      <DependentUpon>LoginControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="InstanceEditor.resx">
+      <DependentUpon>InstanceEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205261940291_mig1.resx">
       <DependentUpon>202205261940291_mig1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Viewer.resx">
       <DependentUpon>Viewer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoginControl.resx">
-      <DependentUpon>LoginControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

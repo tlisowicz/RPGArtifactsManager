@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGArtifactsMenager", "RPGArtifactsMenager\RPGArtifactsMenager.csproj", "{4E832DCC-82E4-461A-8288-591A43A9C144}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGArtifactsManager", "RPGArtifactsMenager\RPGArtifactsManager.csproj", "{4E832DCC-82E4-461A-8288-591A43A9C144}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

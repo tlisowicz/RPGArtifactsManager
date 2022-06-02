@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RPGArtifactsManager.DatabaseRPG.MainTables;
 using RPGArtifactsManager.DatabaseRPG.UtilTables;
-
+using RPGArtifactsMenager;
 namespace RPGArtifactsManager.DatabaseRPG
 {
     class DatabaseHandler
@@ -30,7 +31,7 @@ namespace RPGArtifactsManager.DatabaseRPG
             }
         }
 
-        public List<string> GetPropertiesTypes()
+        public List<string> GetPropertiesUniqueTypes()
         {
             using (var context = new RPGContext())
             {
@@ -40,6 +41,56 @@ namespace RPGArtifactsManager.DatabaseRPG
                     .ToList();
 
                 return types;
+            }
+        }
+
+        public string GetPropertyType(string propertyName)
+        {
+            using (var context = new RPGContext())
+            {
+                var id = context.Properties
+                    .Where(x => x.Name.Equals(propertyName))
+                    .Select(x => x.PropertyID)
+                    .ToList()[0];
+
+                var type = context.PropertyTypes
+                    .Where(x => x.PropertyID == id)
+                    .Select(x => x.Type)
+                    .ToList()[0];
+
+                return type;
+            }
+        }
+
+        public List<string> GetPropertiesTypes(List<string> propertiesNames)
+        {
+            var result = new List<string>();
+            using (var context = new RPGContext())
+            {
+               foreach(var property in propertiesNames)
+               {
+                    result.Add(GetPropertyType(property));
+               }
+            }
+            return result;
+        }
+        public List<string> GetPropertiesByCategory( string categoryName)
+        {
+            var category = FindCategoryByName(categoryName);
+
+            using (var context = new RPGContext())
+            {
+                var propertiesIDs = context.CategoryProperty
+                    .Where(x => x.CategoryID == category.CategoryID)
+                    .Select(x => x.PropertyID)
+                    .ToList();
+
+                var propertiesNames = context.Properties
+                    .Where(x => propertiesIDs.Contains(x.PropertyID))
+                    .Select(x => x.Name)
+                    .ToList();
+
+                return propertiesNames;
             }
         }
 
@@ -55,29 +106,6 @@ namespace RPGArtifactsManager.DatabaseRPG
                 return Category;
             }
         }
-       /* public List<Category> GetChildCategories(string category)
-        {
-            List<Category> result = new List<Category>();
-            using (var context = new RPGContext())
-            {
-                int  rootID = context.Categories
-                    .Where(x => x.Name == category)
-                    .Select(x => x.CategoryID)
-                    .ToList()[0];
-
-                var categories = context.Categories
-                    .Where(x => x.ParentCategoryID == rootID)
-                    .Select(x => x)
-                    .ToList();
-
-                result.AddRange(categories);
-                foreach (var childCategory in result)
-                {
-                    result.AddRange(GetChildCategories(childCategory.Name));
-                }
-                return result;
-            }
-        }*/
         public List<string> GetProperties()
         {
             using (var context = new RPGContext())
@@ -90,23 +118,34 @@ namespace RPGArtifactsManager.DatabaseRPG
             }
         }
 
-        public List<string> GetCategoryProperties(string category)
+        public string GetCategoryNameByInstanceID(int id)
         {
             using (var context = new RPGContext())
             {
-                Category cat = FindCategoryByName(category);
+                var categoryID = context.Instances
+                    .Where(x => x.InstanceID == id)
+                    .Select(x => x.CategoryID)
+                    .ToList()[0];
 
-                var propertiesIDs = context.CategoryProperty
-                    .Where(x => x.CategoryID == cat.CategoryID)
-                    .Select(x => x.PropertyID)
-                    .ToList();
-
-                var propertiesNames = context.Properties
-                    .Where(x => propertiesIDs.Contains(x.PropertyID))
+                var categoryName = context.Categories
+                    .Where(x => x.CategoryID == categoryID)
                     .Select(x => x.Name)
+                    .ToList()[0];
+
+                return categoryName;
+            }
+        }
+
+        public List<string> GetPropertyValuesByInstanceID(int id)
+        {
+            using (var context = new RPGContext())
+            {
+                var values = context.InstanceProperty
+                    .Where(x => x.InstanceID == id)
+                    .Select(x => x.PropertyValue)
                     .ToList();
 
-                return propertiesNames;
+                return values;
             }
         }
 
@@ -264,6 +303,59 @@ namespace RPGArtifactsManager.DatabaseRPG
             }    
         }
 
+        public dynamic AddOrUpdateInstance(string category, List<string> properties, List<string> values, string instanceID = null, bool isUpdate = false)
+        {
+            try {
+                using (var context = new RPGContext())
+                {
+                    var cat = FindCategoryByName(category);
+                    Instance instance;
+                    if (isUpdate)
+                    {
+                        int id;
+                        int.TryParse(instanceID, out id);
+
+                        instance = context.Instances
+                            .Where(x => x.InstanceID == id)
+                            .Select(x => x)
+                            .ToList()[0];
+
+                        instance.UpdatedAt = DateTime.Now;
+                    } else
+                    {
+                        instance = new Instance()
+                        {
+                            CategoryID = cat.CategoryID,
+                            CreatedAt = DateTime.Now,
+                            UpdatedAt = DateTime.Now
+
+                        };
+                    }                  
+                    context.Instances.AddOrUpdate(instance);
+                    context.SaveChanges();
+
+                    var propertiesIDs = context.Properties
+                        .Where(x => properties.Contains(x.Name))
+                        .Select(x => x.PropertyID)
+                        .ToList();
+
+                    foreach(var (propertyID, index) in propertiesIDs.Select((propertyID, index) => (propertyID, index)))
+                    {
+                        context.InstanceProperty.AddOrUpdate(new InstanceProperty()
+                        {
+                            PropertyID = propertyID,
+                            InstanceID = instance.InstanceID,
+                            PropertyValue = values[index]
+                        });
+                    }
+                    context.SaveChanges();
+                    return true;
+                }
+            } catch (Exception)
+            {
+                return $"An Error occurred while updating adding instance";
+            }
+}
         public dynamic UpdateProperty(string propertyName, string newName, string type)
         {
             try
@@ -312,6 +404,7 @@ namespace RPGArtifactsManager.DatabaseRPG
                         .ToList()[0];
 
                     context.InstanceProperty.RemoveRange(ValuesToDelete);
+                    context.Instances.Remove(Instance);
                     context.SaveChanges();
 
                     return true;
@@ -320,8 +413,7 @@ namespace RPGArtifactsManager.DatabaseRPG
             } catch (Exception)
             {
                 return $"An Error occurred while deleting an instance with id: {instanceID}";
-            }
-            
+            }  
         }
         public void DeleteCategory(string categoryName)
         {
@@ -398,22 +490,6 @@ namespace RPGArtifactsManager.DatabaseRPG
                 }
             }    
         }
-        public void UpdateTreeView(string categoryName, string parentCategory, TreeView treeView)
-        {
-            var result = treeView.Nodes.OfType<TreeNode>()
-                             .FirstOrDefault(node => node.Name.Equals(parentCategory));
-
-            treeView.BeginUpdate();
-            if (parentCategory.Equals("<None>"))
-            {
-                treeView.Nodes.Add(new TreeNode(categoryName));
-                treeView.EndUpdate();
-                return;
-            }
-            treeView.Nodes[result.Index].Nodes.Add(new TreeNode(categoryName));
-            treeView.EndUpdate();
-        }
-
         public void generateChild(Category category, TreeNode parentNode)
         {
             using (var context = new RPGContext())
@@ -526,6 +602,21 @@ namespace RPGArtifactsManager.DatabaseRPG
                 {
                     List<string> Row = new List<string>();
 
+                    var strengthPropID = context.Properties
+                        .Where(x => x.Name.Equals("Strength"))
+                        .Select(x => x.PropertyID)
+                        .ToList()[0];
+
+                    int hasStrength = context.InstanceProperty
+                        .Where(x => x.PropertyID == strengthPropID
+                               && x.InstanceID == instance.InstanceID)
+                        .Select(x => x)
+                        .ToList()
+                        .Count;
+                    if (hasStrength == 0)
+                    {
+                        continue;
+                    }
                     var category = context.Categories
                         .Where(x => x.CategoryID == instance.CategoryID)
                         .Select(x => x.Name)
@@ -544,12 +635,14 @@ namespace RPGArtifactsManager.DatabaseRPG
                     Row.Add(category);
                     Row.Add(instance.InstanceID.ToString());
                     Row.AddRange(InstanceProperties);
+
                     Query.Add(Row);
                 }
+
                 List<List<string>> FilteredQuery = Query
-                                                    .OrderBy(list => list[list.Count - 1])
-                                                    .Take(5)
-                                                    .ToList();
+                    .OrderByDescending(list => int.Parse(list[list.Count - 1]))
+                    .Take(5)
+                    .ToList();
 
                 foreach (var row in FilteredQuery)
                 {

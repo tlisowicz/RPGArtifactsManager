@@ -9,19 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using RPGArtifactsManager.DatabaseRPG;
 using RPGArtifactsManager.DatabaseRPG.MainTables;
+using RPGArtifactsMenager;
 
 namespace RPGArtifactsManager
 {
     public partial class Viewer : Form
     {
-        private DatabaseHandler databaseHandler;
+        private InstanceEditor instanceEditor;
+        internal DatabaseHandler databaseHandler;
         public Viewer()
         {
             InitializeComponent();
             databaseHandler = new DatabaseHandler(this);
         }
 
-        private void UpdateListControls()
+        internal void UpdateListControls()
         {
             List<string> categories = databaseHandler.GetCategories();
             categories.Insert(0, "<None>");
@@ -39,7 +41,7 @@ namespace RPGArtifactsManager
             cbx_edit_name.SelectedIndex = 0;
 
             cbx_prop_type.Items.Clear();
-            cbx_prop_type.Items.AddRange(databaseHandler.GetPropertiesTypes().ToArray());
+            cbx_prop_type.Items.AddRange(databaseHandler.GetPropertiesUniqueTypes().ToArray());
             cbx_prop_type.SelectedIndex = 0;
 
             cbx_prop_name.Items.Clear();
@@ -51,8 +53,12 @@ namespace RPGArtifactsManager
             cbx_prop_del.SelectedIndex = 0;
 
             cbx_prop_edit_type.Items.Clear();
-            cbx_prop_edit_type.Items.AddRange(databaseHandler.GetPropertiesTypes().ToArray());
+            cbx_prop_edit_type.Items.AddRange(databaseHandler.GetPropertiesUniqueTypes().ToArray());
             cbx_prop_edit_type.SelectedIndex = 0;
+
+            cbx_ins_add.Items.Clear();
+            cbx_ins_add.Items.AddRange(databaseHandler.GetCategories().ToArray());
+            cbx_ins_add.SelectedIndex = 0;
 
             lbx_properties.Items.Clear();
             lbx_properties.Items.AddRange(databaseHandler.GetProperties().ToArray());
@@ -62,6 +68,7 @@ namespace RPGArtifactsManager
 
             treeView1.Nodes.Clear();
             databaseHandler.SetTreeView(treeView1);
+
         }
 
         private void Viewer_Load(object sender, EventArgs e)
@@ -82,13 +89,15 @@ namespace RPGArtifactsManager
         {
             if (tbx_name.Text.Equals(String.Empty))
             {
-                MessageBox.Show("Category name cannot be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Category name cannot be empty", "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (lbx_properties.CheckedItems.Count == 0)
             {
-                MessageBox.Show("Category has to have at least one property assigned", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Category has to have at least one property assigned", "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -106,14 +115,16 @@ namespace RPGArtifactsManager
 
         private void btn_del_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete this category?", "Deleting", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+            if (MessageBox.Show("Are you sure you want to delete this category?", "Deleting", 
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
             {
                 return;
             }
 
             if (databaseHandler.IsParent(cbx_del.SelectedItem.ToString()))
             {
-                MessageBox.Show("If you want to delete this category you have to delete all subcategories first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("If you want to delete this category you have to delete all subcategories first.", "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -122,17 +133,11 @@ namespace RPGArtifactsManager
             UpdateListControls();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControl1.SelectedIndex == 0)
             {
                 dataGridView2.Columns.Clear();
-                dataGridView2.Rows.Clear();
                 databaseHandler.Show5StrongestInstances(dataGridView2);
             }
         }
@@ -217,7 +222,8 @@ namespace RPGArtifactsManager
 
         private void btn_prop_del_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete this property?", "Deleting", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+            if (MessageBox.Show("Are you sure you want to delete this property?", "Deleting", 
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
             {
                 return;
             }
@@ -248,7 +254,8 @@ namespace RPGArtifactsManager
                     return;
                 }
 
-                var feedback = databaseHandler.UpdateProperty(cbx_prop_name.SelectedItem.ToString(), tbx_prop_edit_name.Text, cbx_prop_edit_type.SelectedItem.ToString());
+                var feedback = databaseHandler.UpdateProperty(cbx_prop_name.SelectedItem.ToString(), 
+                                                              tbx_prop_edit_name.Text, cbx_prop_edit_type.SelectedItem.ToString());
                 if (feedback.GetType() == typeof(string))
                 {
                     MessageBox.Show(feedback, "Error");
@@ -259,13 +266,92 @@ namespace RPGArtifactsManager
             }
         }
 
-        private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        private dynamic EvaluateType(string type, string value)
         {
-            if (e.StateChanged != DataGridViewElementStates.Selected)
+            int result = 0;
+            decimal result2 = 0;
+            switch (type)
             {
-                /*var lista = dataGridView1.SelectedRows[0].As
-                lbx_ins_add_porp.Items.AddRange()*/
+                case "String":
+                    return value;
+
+                case "Decimal":
+                    if (!decimal.TryParse(value, out result2))
+                    {
+                        MessageBox.Show($"Invalid value type. It has to be {type}", "Error");
+                        return false;
+                    }
+                    return result2;
+
+                case "Integer": 
+                    if (!int.TryParse(value, out result))
+                    {
+                        MessageBox.Show($"Invalid value type. It has to be {type}", "Error");
+                        return false;
+                    }
+                    return result;
             }
+            return null;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var propertyNames = databaseHandler.GetPropertiesByCategory(cbx_ins_add.SelectedItem.ToString());
+            instanceEditor = new InstanceEditor(this, propertyNames);
+
+            var types = databaseHandler.GetPropertiesTypes(propertyNames);
+            instanceEditor.RenderFields(types, editMode: false);
+            instanceEditor.Show();
+        }
+
+        private void btn_ins_del_Click(object sender, EventArgs e)
+        {
+            if (tbx_ins_del.Text.Equals(String.Empty))
+            {
+                MessageBox.Show("Instance ID not given", "Error");
+                return;
+            }
+
+            int id;
+            if (int.TryParse(tbx_ins_del.Text, out id) == false)
+            {
+                MessageBox.Show("It's not an integer number", "Error");
+                return;
+
+            }
+
+            var feedback = databaseHandler.DeleteInstance(id);
+            if (feedback.GetType() == typeof(string))
+            {
+                MessageBox.Show(feedback, "Error");
+                return;
+            }
+            MessageBox.Show("Instance deleted successfully.");
+            UpdateListControls();
+        }
+
+        private void btn_ins_edit_Click(object sender, EventArgs e)
+        {
+            if (tbx_ins_edit.Text.Equals(String.Empty))
+            {
+                MessageBox.Show("Instance ID not given", "Error");
+                return;
+            }
+
+            int id;
+            if (int.TryParse(tbx_ins_edit.Text, out id) == false)
+            {
+                MessageBox.Show("It's not an integer number", "Error");
+                return;
+            }
+            var categoryName = databaseHandler.GetCategoryNameByInstanceID(id);
+            var propertyNames = databaseHandler.GetPropertiesByCategory(categoryName);
+            var types = databaseHandler.GetPropertiesTypes(propertyNames);
+            var values = databaseHandler.GetPropertyValuesByInstanceID(id);
+
+            instanceEditor = new InstanceEditor(this, propertyNames);
+            instanceEditor.RenderFields(types, editMode: true, id.ToString(), values);
+            instanceEditor.Show();
         }
     }
 }

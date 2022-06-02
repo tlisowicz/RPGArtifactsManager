@@ -13,7 +13,7 @@ namespace RPGArtifactsMenager.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202205251848124_mig1"; }
+            get { return "202205261940291_mig1"; }
         }
         
         string IMigrationMetadata.Source

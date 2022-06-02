@@ -29,34 +29,41 @@ namespace RPGArtifactsManager
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Mages");
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Humans", new System.Windows.Forms.TreeNode[] {
-            treeNode45});
-            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Elves");
-            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Playable", new System.Windows.Forms.TreeNode[] {
-            treeNode46,
-            treeNode47});
-            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Dragons");
-            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Orcs");
-            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Ents");
-            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Monsters", new System.Windows.Forms.TreeNode[] {
-            treeNode49,
-            treeNode50,
-            treeNode51});
-            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Caves");
-            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Forests", new System.Windows.Forms.TreeNode[] {
-            treeNode53});
-            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("Enviroment", new System.Windows.Forms.TreeNode[] {
-            treeNode54});
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Mages");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Humans", new System.Windows.Forms.TreeNode[] {
+            treeNode12});
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Elves");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Playable", new System.Windows.Forms.TreeNode[] {
+            treeNode13,
+            treeNode14});
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Dragons");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Orcs");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Ents");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Monsters", new System.Windows.Forms.TreeNode[] {
+            treeNode16,
+            treeNode17,
+            treeNode18});
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Caves");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Forests", new System.Windows.Forms.TreeNode[] {
+            treeNode20});
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Enviroment", new System.Windows.Forms.TreeNode[] {
+            treeNode21});
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btn_ins_edit = new System.Windows.Forms.Button();
+            this.btn_ins_add = new System.Windows.Forms.Button();
+            this.label26 = new System.Windows.Forms.Label();
+            this.cbx_ins_add = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label22 = new System.Windows.Forms.Label();
             this.btn_prop_del = new System.Windows.Forms.Button();
             this.btn_prop_edit = new System.Windows.Forms.Button();
             this.btn_prop_add = new System.Windows.Forms.Button();
@@ -94,21 +101,12 @@ namespace RPGArtifactsManager
             this.tbx_name = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_add = new System.Windows.Forms.Button();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.lbx_Ins_edit_prop = new System.Windows.Forms.ListBox();
-            this.lbx_ins_add_porp = new System.Windows.Forms.ListBox();
-            this.tbx_ins_edit_val = new System.Windows.Forms.TextBox();
-            this.tbx_ins__add_val = new System.Windows.Forms.TextBox();
-            this.cbx_ins_add = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
+            this.tbx_ins_del = new System.Windows.Forms.TextBox();
+            this.btn_ins_del = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
-            this.btn_ins_add = new System.Windows.Forms.Button();
-            this.btn_ins_edit = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbx_ins_edit = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -129,18 +127,16 @@ namespace RPGArtifactsManager
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.tbx_ins_edit);
+            this.tabPage1.Controls.Add(this.label27);
+            this.tabPage1.Controls.Add(this.btn_ins_del);
+            this.tabPage1.Controls.Add(this.tbx_ins_del);
+            this.tabPage1.Controls.Add(this.label25);
             this.tabPage1.Controls.Add(this.btn_ins_edit);
             this.tabPage1.Controls.Add(this.btn_ins_add);
-            this.tabPage1.Controls.Add(this.label27);
             this.tabPage1.Controls.Add(this.label26);
-            this.tabPage1.Controls.Add(this.label25);
-            this.tabPage1.Controls.Add(this.label24);
-            this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.cbx_ins_add);
-            this.tabPage1.Controls.Add(this.tbx_ins__add_val);
-            this.tabPage1.Controls.Add(this.tbx_ins_edit_val);
-            this.tabPage1.Controls.Add(this.lbx_ins_add_porp);
-            this.tabPage1.Controls.Add(this.lbx_Ins_edit_prop);
             this.tabPage1.Controls.Add(this.label23);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.label10);
@@ -156,6 +152,53 @@ namespace RPGArtifactsManager
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Browse Data";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btn_ins_edit
+            // 
+            this.btn_ins_edit.Location = new System.Drawing.Point(148, 578);
+            this.btn_ins_edit.Name = "btn_ins_edit";
+            this.btn_ins_edit.Size = new System.Drawing.Size(100, 23);
+            this.btn_ins_edit.TabIndex = 41;
+            this.btn_ins_edit.Text = "Choose Values";
+            this.btn_ins_edit.UseVisualStyleBackColor = true;
+            this.btn_ins_edit.Click += new System.EventHandler(this.btn_ins_edit_Click);
+            // 
+            // btn_ins_add
+            // 
+            this.btn_ins_add.Location = new System.Drawing.Point(40, 417);
+            this.btn_ins_add.Name = "btn_ins_add";
+            this.btn_ins_add.Size = new System.Drawing.Size(115, 23);
+            this.btn_ins_add.TabIndex = 38;
+            this.btn_ins_add.Text = "Choose Values";
+            this.btn_ins_add.UseVisualStyleBackColor = true;
+            this.btn_ins_add.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(72, 363);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(52, 13);
+            this.label26.TabIndex = 34;
+            this.label26.Text = "Category:";
+            // 
+            // cbx_ins_add
+            // 
+            this.cbx_ins_add.FormattingEnabled = true;
+            this.cbx_ins_add.Location = new System.Drawing.Point(39, 379);
+            this.cbx_ins_add.Name = "cbx_ins_add";
+            this.cbx_ins_add.Size = new System.Drawing.Size(121, 21);
+            this.cbx_ins_add.TabIndex = 30;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label23.Location = new System.Drawing.Point(35, 323);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(137, 25);
+            this.label23.TabIndex = 25;
+            this.label23.Text = "Add Instance";
             // 
             // label11
             // 
@@ -187,6 +230,16 @@ namespace RPGArtifactsManager
             this.dataGridView2.Size = new System.Drawing.Size(419, 161);
             this.dataGridView2.TabIndex = 22;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.Location = new System.Drawing.Point(127, 485);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(136, 25);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Edit Instance";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -201,32 +254,32 @@ namespace RPGArtifactsManager
             // 
             this.treeView1.Location = new System.Drawing.Point(49, 72);
             this.treeView1.Name = "treeView1";
-            treeNode45.Name = "Mages";
-            treeNode45.Text = "Mages";
-            treeNode46.Name = "Humans";
-            treeNode46.Text = "Humans";
-            treeNode47.Name = "Elves";
-            treeNode47.Text = "Elves";
-            treeNode48.Name = "Playable";
-            treeNode48.Text = "Playable";
-            treeNode49.Name = "Dragons";
-            treeNode49.Text = "Dragons";
-            treeNode50.Name = "Orcs";
-            treeNode50.Text = "Orcs";
-            treeNode51.Name = "Ents";
-            treeNode51.Text = "Ents";
-            treeNode52.Name = "Monsters";
-            treeNode52.Text = "Monsters";
-            treeNode53.Name = "Caves";
-            treeNode53.Text = "Caves";
-            treeNode54.Name = "Forests";
-            treeNode54.Text = "Forests";
-            treeNode55.Name = "Enviroment";
-            treeNode55.Text = "Enviroment";
+            treeNode12.Name = "Mages";
+            treeNode12.Text = "Mages";
+            treeNode13.Name = "Humans";
+            treeNode13.Text = "Humans";
+            treeNode14.Name = "Elves";
+            treeNode14.Text = "Elves";
+            treeNode15.Name = "Playable";
+            treeNode15.Text = "Playable";
+            treeNode16.Name = "Dragons";
+            treeNode16.Text = "Dragons";
+            treeNode17.Name = "Orcs";
+            treeNode17.Text = "Orcs";
+            treeNode18.Name = "Ents";
+            treeNode18.Text = "Ents";
+            treeNode19.Name = "Monsters";
+            treeNode19.Text = "Monsters";
+            treeNode20.Name = "Caves";
+            treeNode20.Text = "Caves";
+            treeNode21.Name = "Forests";
+            treeNode21.Text = "Forests";
+            treeNode22.Name = "Enviroment";
+            treeNode22.Text = "Enviroment";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode48,
-            treeNode52,
-            treeNode55});
+            treeNode15,
+            treeNode19,
+            treeNode22});
             this.treeView1.Size = new System.Drawing.Size(214, 177);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -240,8 +293,6 @@ namespace RPGArtifactsManager
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(800, 374);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView1_RowStateChanged);
             // 
             // tabPage2
             // 
@@ -289,6 +340,15 @@ namespace RPGArtifactsManager
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "Categories Editor";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(527, 222);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(54, 13);
+            this.label22.TabIndex = 59;
+            this.label22.Text = "Properties";
             // 
             // btn_prop_del
             // 
@@ -625,135 +685,57 @@ namespace RPGArtifactsManager
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(527, 222);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(54, 13);
-            this.label22.TabIndex = 59;
-            this.label22.Text = "Properties";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(127, 519);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(136, 25);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Edit Instance";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label23.Location = new System.Drawing.Point(126, 303);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(137, 25);
-            this.label23.TabIndex = 25;
-            this.label23.Text = "Add Instance";
-            // 
-            // lbx_Ins_edit_prop
-            // 
-            this.lbx_Ins_edit_prop.FormattingEnabled = true;
-            this.lbx_Ins_edit_prop.Location = new System.Drawing.Point(40, 586);
-            this.lbx_Ins_edit_prop.Name = "lbx_Ins_edit_prop";
-            this.lbx_Ins_edit_prop.Size = new System.Drawing.Size(120, 95);
-            this.lbx_Ins_edit_prop.TabIndex = 26;
-            // 
-            // lbx_ins_add_porp
-            // 
-            this.lbx_ins_add_porp.FormattingEnabled = true;
-            this.lbx_ins_add_porp.Location = new System.Drawing.Point(39, 403);
-            this.lbx_ins_add_porp.Name = "lbx_ins_add_porp";
-            this.lbx_ins_add_porp.Size = new System.Drawing.Size(120, 95);
-            this.lbx_ins_add_porp.TabIndex = 27;
-            // 
-            // tbx_ins_edit_val
-            // 
-            this.tbx_ins_edit_val.Location = new System.Drawing.Point(193, 592);
-            this.tbx_ins_edit_val.Name = "tbx_ins_edit_val";
-            this.tbx_ins_edit_val.Size = new System.Drawing.Size(100, 20);
-            this.tbx_ins_edit_val.TabIndex = 28;
-            // 
-            // tbx_ins__add_val
-            // 
-            this.tbx_ins__add_val.Location = new System.Drawing.Point(193, 419);
-            this.tbx_ins__add_val.Name = "tbx_ins__add_val";
-            this.tbx_ins__add_val.Size = new System.Drawing.Size(100, 20);
-            this.tbx_ins__add_val.TabIndex = 29;
-            // 
-            // cbx_ins_add
-            // 
-            this.cbx_ins_add.FormattingEnabled = true;
-            this.cbx_ins_add.Location = new System.Drawing.Point(39, 353);
-            this.cbx_ins_add.Name = "cbx_ins_add";
-            this.cbx_ins_add.Size = new System.Drawing.Size(121, 21);
-            this.cbx_ins_add.TabIndex = 30;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(62, 570);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 13);
-            this.label8.TabIndex = 31;
-            this.label8.Text = "Properties:";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(206, 570);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(76, 13);
-            this.label24.TabIndex = 32;
-            this.label24.Text = "PropertyValue:";
-            // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(67, 387);
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label25.Location = new System.Drawing.Point(201, 323);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(57, 13);
-            this.label25.TabIndex = 33;
-            this.label25.Text = "Properties:";
+            this.label25.Size = new System.Drawing.Size(161, 25);
+            this.label25.TabIndex = 42;
+            this.label25.Text = "Delete Instance";
             // 
-            // label26
+            // tbx_ins_del
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(72, 337);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(52, 13);
-            this.label26.TabIndex = 34;
-            this.label26.Text = "Category:";
+            this.tbx_ins_del.Location = new System.Drawing.Point(252, 380);
+            this.tbx_ins_del.Name = "tbx_ins_del";
+            this.tbx_ins_del.Size = new System.Drawing.Size(54, 20);
+            this.tbx_ins_del.TabIndex = 43;
+            // 
+            // btn_ins_del
+            // 
+            this.btn_ins_del.Location = new System.Drawing.Point(225, 417);
+            this.btn_ins_del.Name = "btn_ins_del";
+            this.btn_ins_del.Size = new System.Drawing.Size(100, 23);
+            this.btn_ins_del.TabIndex = 44;
+            this.btn_ins_del.Text = "Delete";
+            this.btn_ins_del.UseVisualStyleBackColor = true;
+            this.btn_ins_del.Click += new System.EventHandler(this.btn_ins_del_Click);
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(206, 403);
+            this.label27.Location = new System.Drawing.Point(249, 363);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(76, 13);
-            this.label27.TabIndex = 35;
-            this.label27.Text = "PropertyValue:";
+            this.label27.Size = new System.Drawing.Size(65, 13);
+            this.label27.TabIndex = 45;
+            this.label27.Text = "Instance ID:";
             // 
-            // btn_ins_add
+            // label8
             // 
-            this.btn_ins_add.Location = new System.Drawing.Point(193, 459);
-            this.btn_ins_add.Name = "btn_ins_add";
-            this.btn_ins_add.Size = new System.Drawing.Size(100, 23);
-            this.btn_ins_add.TabIndex = 36;
-            this.btn_ins_add.Text = "Add";
-            this.btn_ins_add.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(167, 525);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(65, 13);
+            this.label8.TabIndex = 47;
+            this.label8.Text = "Instance ID:";
             // 
-            // btn_ins_edit
+            // tbx_ins_edit
             // 
-            this.btn_ins_edit.Location = new System.Drawing.Point(193, 632);
-            this.btn_ins_edit.Name = "btn_ins_edit";
-            this.btn_ins_edit.Size = new System.Drawing.Size(100, 23);
-            this.btn_ins_edit.TabIndex = 37;
-            this.btn_ins_edit.Text = "button2";
-            this.btn_ins_edit.UseVisualStyleBackColor = true;
+            this.tbx_ins_edit.Location = new System.Drawing.Point(170, 542);
+            this.tbx_ins_edit.Name = "tbx_ins_edit";
+            this.tbx_ins_edit.Size = new System.Drawing.Size(54, 20);
+            this.tbx_ins_edit.TabIndex = 46;
             // 
             // Viewer
             // 
@@ -823,20 +805,18 @@ namespace RPGArtifactsManager
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cbx_ins_add;
-        private System.Windows.Forms.TextBox tbx_ins__add_val;
-        private System.Windows.Forms.TextBox tbx_ins_edit_val;
-        private System.Windows.Forms.ListBox lbx_ins_add_porp;
-        private System.Windows.Forms.ListBox lbx_Ins_edit_prop;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btn_ins_edit;
         private System.Windows.Forms.Button btn_ins_add;
+        private System.Windows.Forms.Button btn_ins_edit;
+        internal System.Windows.Forms.ComboBox cbx_ins_add;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button btn_ins_del;
+        private System.Windows.Forms.TextBox tbx_ins_del;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbx_ins_edit;
     }
 }
 

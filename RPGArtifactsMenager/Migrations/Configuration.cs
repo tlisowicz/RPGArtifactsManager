@@ -91,6 +91,7 @@
             context.CategoryProperty.AddOrUpdate(new CategoryProperty() { CategoryID = 10, PropertyID = 7 });
 
             context.CategoryProperty.AddOrUpdate(new CategoryProperty() { CategoryID = 11, PropertyID = 1 });
+            context.CategoryProperty.AddOrUpdate(new CategoryProperty() { CategoryID = 11, PropertyID = 1 });
             context.CategoryProperty.AddOrUpdate(new CategoryProperty() { CategoryID = 11, PropertyID = 6 });
 
             context.PropertyTypes.AddOrUpdate(new PropertyType() { PropertyTypeID = 1, PropertyID = 1, Type = "String" });
@@ -115,13 +116,13 @@
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 1, PropertyID = 1, PropertyValue = "Tact" });
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 1, PropertyID = 2, PropertyValue = "20" });
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 1, PropertyID = 3, PropertyValue = "30" });
-            context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 1, PropertyID = 5, PropertyValue = "1.83" });
+            context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 1, PropertyID = 5, PropertyValue = "1,83" });
 
             //Elf Instance
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 2, PropertyID = 1, PropertyValue = "Amarra" });
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 2, PropertyID = 2, PropertyValue = "320" });
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 2, PropertyID = 3, PropertyValue = "37" });
-            context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 2, PropertyID = 5, PropertyValue = "1.75" });
+            context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 2, PropertyID = 5, PropertyValue = "1,75" });
 
             //DragonInstance
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 3, PropertyID = 1, PropertyValue = "Aryn" });
@@ -134,29 +135,29 @@
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 4, PropertyID = 2, PropertyValue = "42" });
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 4, PropertyID = 3, PropertyValue = "30" });
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 4, PropertyID = 4, PropertyValue = "60" });
-            context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 4, PropertyID = 5, PropertyValue = "1.68" });
+            context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 4, PropertyID = 5, PropertyValue = "1,68" });
 
             //OrcInstance
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 5, PropertyID = 1, PropertyValue = "Turnip" });
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 5, PropertyID = 2, PropertyValue = "10" });
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 5, PropertyID = 3, PropertyValue = "43" });
-            context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 5, PropertyID = 5, PropertyValue = "1.95" });
+            context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 5, PropertyID = 5, PropertyValue = "1,95" });
 
             //EntInstance
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 6, PropertyID = 1, PropertyValue = "Fen" });
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 6, PropertyID = 2, PropertyValue = "5000" });
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 6, PropertyID = 3, PropertyValue = "50" });
-            context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 6, PropertyID = 5, PropertyValue = "5.42" });
+            context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 6, PropertyID = 5, PropertyValue = "5,42" });
 
             //ForestInstance
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 7, PropertyID = 1, PropertyValue = "Dark Forest" });
-            context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 7, PropertyID = 5, PropertyValue = "1520.00" });
+            context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 7, PropertyID = 5, PropertyValue = "1520,00" });
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 7, PropertyID = 7, PropertyValue = "Large" });
 
 
             //CaveInstance
             context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 8, PropertyID = 1, PropertyValue = "Cave of Skulls" });
-            context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 8, PropertyID = 6, PropertyValue = "130.00" });
+            context.InstanceProperty.AddOrUpdate(new InstanceProperty() { InstanceID = 8, PropertyID = 6, PropertyValue = "130,00" });
 
 
             context.SaveChanges();
