@@ -162,7 +162,7 @@ namespace RPGArtifactsMenager
                     id = label.Text;
                 }                
                 databaseHandler.AddOrUpdateInstance(viewer.cbx_ins_add.Text, properties, values, id, isUpdate: isUpdate);
-                viewer.UpdateListControls();
+                viewer.UpdateControls();
                 MessageBox.Show("Instance successfully added.", "Added");
                 this.Dispose();
                 return;

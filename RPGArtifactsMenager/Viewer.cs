@@ -20,10 +20,10 @@ namespace RPGArtifactsManager
         public Viewer()
         {
             InitializeComponent();
-            databaseHandler = new DatabaseHandler(this);
+            databaseHandler = new DatabaseHandler();
         }
 
-        internal void UpdateListControls()
+        internal void UpdateControls()
         {
             List<string> categories = databaseHandler.GetCategories();
             categories.Insert(0, "<None>");
@@ -66,6 +66,11 @@ namespace RPGArtifactsManager
             lbx_new_properties.Items.Clear();
             lbx_new_properties.Items.AddRange(databaseHandler.GetProperties().ToArray());
 
+            dataGridView1.Columns.Clear();
+
+            dataGridView2.Columns.Clear();
+            databaseHandler.Show5StrongestInstances(dataGridView2);
+
             treeView1.Nodes.Clear();
             databaseHandler.SetTreeView(treeView1);
 
@@ -73,9 +78,7 @@ namespace RPGArtifactsManager
 
         private void Viewer_Load(object sender, EventArgs e)
         {
-            UpdateListControls();
-            databaseHandler.SetTreeView(treeView1);
-            databaseHandler.Show5StrongestInstances(dataGridView2);
+            UpdateControls();
         }    
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -108,7 +111,7 @@ namespace RPGArtifactsManager
                 MessageBox.Show(feedback, "Error");
                 return;
             }
-            UpdateListControls();
+            UpdateControls();
             MessageBox.Show("Category has been added successfully", "Added");
 
         }
@@ -130,15 +133,14 @@ namespace RPGArtifactsManager
 
             databaseHandler.DeleteCategory(cbx_del.SelectedItem.ToString());
             MessageBox.Show("Category successfully deleted.", "Deleted");
-            UpdateListControls();
+            UpdateControls();
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControl1.SelectedIndex == 0)
             {
-                dataGridView2.Columns.Clear();
-                databaseHandler.Show5StrongestInstances(dataGridView2);
+                UpdateControls();
             }
         }
 
@@ -179,7 +181,7 @@ namespace RPGArtifactsManager
                 return;
             }
             MessageBox.Show("Category edited successfully.");
-            UpdateListControls();
+            UpdateControls();
 
         }
 
@@ -205,7 +207,7 @@ namespace RPGArtifactsManager
                 return;
             }
             MessageBox.Show("Property added successfully.");
-            UpdateListControls();
+            UpdateControls();
         }
 
         private void cb_prop_edit_CheckedChanged(object sender, EventArgs e)
@@ -235,7 +237,7 @@ namespace RPGArtifactsManager
                 return;
             }
             MessageBox.Show("Property deleted successfully.");
-            UpdateListControls();
+            UpdateControls();
         }
 
         private void btn_prop_edit_Click(object sender, EventArgs e)
@@ -262,7 +264,7 @@ namespace RPGArtifactsManager
                     return;
                 }
                 MessageBox.Show("Property edited successfully.");
-                UpdateListControls();
+                UpdateControls();
             }
         }
 
@@ -327,7 +329,7 @@ namespace RPGArtifactsManager
                 return;
             }
             MessageBox.Show("Instance deleted successfully.");
-            UpdateListControls();
+            UpdateControls();
         }
 
         private void btn_ins_edit_Click(object sender, EventArgs e)

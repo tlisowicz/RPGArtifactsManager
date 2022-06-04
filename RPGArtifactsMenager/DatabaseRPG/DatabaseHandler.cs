@@ -12,12 +12,6 @@ namespace RPGArtifactsManager.DatabaseRPG
 {
     class DatabaseHandler
     {
-        private Viewer viewer;
-
-        public DatabaseHandler(Viewer viewer)
-        {
-            this.viewer = viewer;
-        }
 
         public List<string> GetCategories()
         {
