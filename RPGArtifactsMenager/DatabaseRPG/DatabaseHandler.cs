@@ -429,6 +429,18 @@ namespace RPGArtifactsManager.DatabaseRPG
             }
         }
 
+        public string GetCategoryNameByID(int ID)
+        {
+            using (var context = new RPGContext())
+            {
+                var category = context.Categories
+                    .Where(x => x.CategoryID == ID)
+                    .Select(x => x.Name)
+                    .ToList()[0];
+
+                return category;
+            }
+        }
         public dynamic DeleteProperty(string propertyName)
         {
             try
@@ -516,45 +528,74 @@ namespace RPGArtifactsManager.DatabaseRPG
                     .Select(x => x.PropertyID)
                     .ToList();
 
-                var Properties = context.Properties
+                var properties = context.Properties
                     .Where(x => CategoryProperty.Contains(x.PropertyID))
-                    .Select(x => new { x.Name, x.PropertyID })
+                    .Select(x => x)
                     .ToList();
 
-                var Instances = context.Instances
-                    .Where(x => x.CategoryID == category.CategoryID)
-                    .Select(x =>  x.InstanceID)
-                    .ToList();   
+                var instances = new List<Instance>();
+                var subcategoriesQueue = new Queue<Category>();
+                subcategoriesQueue.Enqueue(category);
 
-                List<string> header = new List<string>();
-
-                header.Add("Category");
-                header.Add("InstanceID");
-                foreach (var property in Properties)
+                while (subcategoriesQueue.Count != 0) 
                 {
-                    header.Add(property.Name);
-                }
+                    var cat = subcategoriesQueue.Dequeue();
+                    var instancesInCategory = context.Instances
+                        .Where(x => x.CategoryID == cat.CategoryID)
+                        .Select(x => x)
+                        .ToList();
+                    instances.AddRange(instancesInCategory);
 
-                //initializing datagrid columns
-                dataGridView1.ColumnCount = header.Count;
-                foreach (DataGridViewColumn column in dataGridView1.Columns)
+                    var subcategories = context.Categories
+                        .Where(x => x.ParentCategoryID == cat.CategoryID)
+                        .Select(x => x)
+                        .ToList();
+
+                    foreach (Category c in subcategories)
+                    {
+                        subcategoriesQueue.Enqueue(c);
+                    }                       
+                }
+                fillGridView(dataGridView1, instances, properties);
+            }
+        }
+
+        public void fillGridView(DataGridView dataGridView1, List<Instance> instances, List<Property> Properties)
+        {
+            List<string> header = new List<string>();
+            header.Add("Category");
+            header.Add("InstanceID");
+
+            foreach (var property in Properties)
+            {
+                header.Add(property.Name);
+            }
+
+            dataGridView1.ColumnCount = header.Count;
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                column.Name = header[column.Index];
+            }
+
+            List<List<string>> Query = new List<List<string>>();
+
+            var PropertiesIDs = Properties
+                .Select(x => x.PropertyID)
+                .ToList();
+
+            using (var context = new RPGContext())
+            {
+                foreach (var instance in instances)
                 {
-                    column.Name = header[column.Index];
-                }
+                    List<string> Row = new List<string>();
 
-                //filling datagrid rows
-                List<List<string>> Query = new List<List<string>>();
-
-                foreach (var instance in Instances)
-                { 
-                    List<string> Row = new List<string>();                    
-                    Row.Add(category.Name);
-                    Row.Add(instance.ToString());
+                    Row.Add(GetCategoryNameByID(instance.CategoryID));
+                    Row.Add(instance.InstanceID.ToString());
 
                     var PropertiesValues = context.InstanceProperty
-                    .Where(x => x.InstanceID == instance)
-                    .Select(x => new { x.PropertyValue, x.PropertyID })
-                    .ToList();
+                        .Where(x => x.InstanceID == instance.InstanceID && PropertiesIDs.Contains(x.PropertyID))
+                        .Select(x => new { x.PropertyValue, x.PropertyID })
+                        .ToList();
 
                     foreach (var value in PropertiesValues)
                     {
@@ -563,11 +604,11 @@ namespace RPGArtifactsManager.DatabaseRPG
                     Query.Add(Row);
                 }
 
-                foreach(var row in Query)
+                foreach (var row in Query)
                 {
                     dataGridView1.Rows.Add(row.ToArray());
                 }
-            }
+            }            
         }
 
         public void Show5StrongestInstances(DataGridView dataGridView)
