@@ -29,27 +29,33 @@ namespace RPGArtifactsManager
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Mages");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Humans", new System.Windows.Forms.TreeNode[] {
-            treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Elves");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Playable", new System.Windows.Forms.TreeNode[] {
-            treeNode13,
-            treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Dragons");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Orcs");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Ents");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Monsters", new System.Windows.Forms.TreeNode[] {
-            treeNode16,
-            treeNode17,
-            treeNode18});
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Caves");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Forests", new System.Windows.Forms.TreeNode[] {
-            treeNode20});
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Enviroment", new System.Windows.Forms.TreeNode[] {
-            treeNode21});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Mages");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Humans", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Elves");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Playable", new System.Windows.Forms.TreeNode[] {
+            treeNode2,
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Dragons");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Orcs");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Ents");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Monsters", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode6,
+            treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Caves");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Forests", new System.Windows.Forms.TreeNode[] {
+            treeNode9});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Enviroment", new System.Windows.Forms.TreeNode[] {
+            treeNode10});
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbx_ins_edit = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.btn_ins_del = new System.Windows.Forms.Button();
+            this.tbx_ins_del = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.btn_ins_edit = new System.Windows.Forms.Button();
             this.btn_ins_add = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
@@ -101,12 +107,6 @@ namespace RPGArtifactsManager
             this.tbx_name = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_add = new System.Windows.Forms.Button();
-            this.label25 = new System.Windows.Forms.Label();
-            this.tbx_ins_del = new System.Windows.Forms.TextBox();
-            this.btn_ins_del = new System.Windows.Forms.Button();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbx_ins_edit = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -152,6 +152,58 @@ namespace RPGArtifactsManager
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Browse Data";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(167, 525);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(65, 13);
+            this.label8.TabIndex = 47;
+            this.label8.Text = "Instance ID:";
+            // 
+            // tbx_ins_edit
+            // 
+            this.tbx_ins_edit.Location = new System.Drawing.Point(170, 542);
+            this.tbx_ins_edit.Name = "tbx_ins_edit";
+            this.tbx_ins_edit.Size = new System.Drawing.Size(54, 20);
+            this.tbx_ins_edit.TabIndex = 46;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(249, 363);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(65, 13);
+            this.label27.TabIndex = 45;
+            this.label27.Text = "Instance ID:";
+            // 
+            // btn_ins_del
+            // 
+            this.btn_ins_del.Location = new System.Drawing.Point(225, 417);
+            this.btn_ins_del.Name = "btn_ins_del";
+            this.btn_ins_del.Size = new System.Drawing.Size(100, 23);
+            this.btn_ins_del.TabIndex = 44;
+            this.btn_ins_del.Text = "Delete";
+            this.btn_ins_del.UseVisualStyleBackColor = true;
+            this.btn_ins_del.Click += new System.EventHandler(this.btn_ins_del_Click);
+            // 
+            // tbx_ins_del
+            // 
+            this.tbx_ins_del.Location = new System.Drawing.Point(252, 380);
+            this.tbx_ins_del.Name = "tbx_ins_del";
+            this.tbx_ins_del.Size = new System.Drawing.Size(54, 20);
+            this.tbx_ins_del.TabIndex = 43;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label25.Location = new System.Drawing.Point(201, 323);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(161, 25);
+            this.label25.TabIndex = 42;
+            this.label25.Text = "Delete Instance";
             // 
             // btn_ins_edit
             // 
@@ -254,32 +306,32 @@ namespace RPGArtifactsManager
             // 
             this.treeView1.Location = new System.Drawing.Point(49, 72);
             this.treeView1.Name = "treeView1";
-            treeNode12.Name = "Mages";
-            treeNode12.Text = "Mages";
-            treeNode13.Name = "Humans";
-            treeNode13.Text = "Humans";
-            treeNode14.Name = "Elves";
-            treeNode14.Text = "Elves";
-            treeNode15.Name = "Playable";
-            treeNode15.Text = "Playable";
-            treeNode16.Name = "Dragons";
-            treeNode16.Text = "Dragons";
-            treeNode17.Name = "Orcs";
-            treeNode17.Text = "Orcs";
-            treeNode18.Name = "Ents";
-            treeNode18.Text = "Ents";
-            treeNode19.Name = "Monsters";
-            treeNode19.Text = "Monsters";
-            treeNode20.Name = "Caves";
-            treeNode20.Text = "Caves";
-            treeNode21.Name = "Forests";
-            treeNode21.Text = "Forests";
-            treeNode22.Name = "Enviroment";
-            treeNode22.Text = "Enviroment";
+            treeNode1.Name = "Mages";
+            treeNode1.Text = "Mages";
+            treeNode2.Name = "Humans";
+            treeNode2.Text = "Humans";
+            treeNode3.Name = "Elves";
+            treeNode3.Text = "Elves";
+            treeNode4.Name = "Playable";
+            treeNode4.Text = "Playable";
+            treeNode5.Name = "Dragons";
+            treeNode5.Text = "Dragons";
+            treeNode6.Name = "Orcs";
+            treeNode6.Text = "Orcs";
+            treeNode7.Name = "Ents";
+            treeNode7.Text = "Ents";
+            treeNode8.Name = "Monsters";
+            treeNode8.Text = "Monsters";
+            treeNode9.Name = "Caves";
+            treeNode9.Text = "Caves";
+            treeNode10.Name = "Forests";
+            treeNode10.Text = "Forests";
+            treeNode11.Name = "Enviroment";
+            treeNode11.Text = "Enviroment";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode15,
-            treeNode19,
-            treeNode22});
+            treeNode4,
+            treeNode8,
+            treeNode11});
             this.treeView1.Size = new System.Drawing.Size(214, 177);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -568,6 +620,7 @@ namespace RPGArtifactsManager
             this.cbx_edit_name.Name = "cbx_edit_name";
             this.cbx_edit_name.Size = new System.Drawing.Size(100, 21);
             this.cbx_edit_name.TabIndex = 34;
+            this.cbx_edit_name.SelectedIndexChanged += new System.EventHandler(this.cbx_edit_name_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -684,58 +737,6 @@ namespace RPGArtifactsManager
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label25.Location = new System.Drawing.Point(201, 323);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(161, 25);
-            this.label25.TabIndex = 42;
-            this.label25.Text = "Delete Instance";
-            // 
-            // tbx_ins_del
-            // 
-            this.tbx_ins_del.Location = new System.Drawing.Point(252, 380);
-            this.tbx_ins_del.Name = "tbx_ins_del";
-            this.tbx_ins_del.Size = new System.Drawing.Size(54, 20);
-            this.tbx_ins_del.TabIndex = 43;
-            // 
-            // btn_ins_del
-            // 
-            this.btn_ins_del.Location = new System.Drawing.Point(225, 417);
-            this.btn_ins_del.Name = "btn_ins_del";
-            this.btn_ins_del.Size = new System.Drawing.Size(100, 23);
-            this.btn_ins_del.TabIndex = 44;
-            this.btn_ins_del.Text = "Delete";
-            this.btn_ins_del.UseVisualStyleBackColor = true;
-            this.btn_ins_del.Click += new System.EventHandler(this.btn_ins_del_Click);
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(249, 363);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(65, 13);
-            this.label27.TabIndex = 45;
-            this.label27.Text = "Instance ID:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(167, 525);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 13);
-            this.label8.TabIndex = 47;
-            this.label8.Text = "Instance ID:";
-            // 
-            // tbx_ins_edit
-            // 
-            this.tbx_ins_edit.Location = new System.Drawing.Point(170, 542);
-            this.tbx_ins_edit.Name = "tbx_ins_edit";
-            this.tbx_ins_edit.Size = new System.Drawing.Size(54, 20);
-            this.tbx_ins_edit.TabIndex = 46;
             // 
             // Viewer
             // 

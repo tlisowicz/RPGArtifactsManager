@@ -64,9 +64,17 @@ namespace RPGArtifactsManager
             lbx_properties.Items.AddRange(databaseHandler.GetProperties().ToArray());
 
             lbx_new_properties.Items.Clear();
+            var properties = databaseHandler.GetPropertiesByCategory(cbx_edit_name.SelectedItem.ToString());
             lbx_new_properties.Items.AddRange(databaseHandler.GetProperties().ToArray());
+            for (int i = 0; i< lbx_new_properties.Items.Count; ++i)
+            {
+                if (properties.Contains(lbx_new_properties.Items[i].ToString()))
+                {
+                    lbx_new_properties.SetItemChecked(i, true);
+                }
+            }
 
-            dataGridView1.Columns.Clear();
+                dataGridView1.Columns.Clear();
 
             dataGridView2.Columns.Clear();
             databaseHandler.Show5StrongestInstances(dataGridView2);
@@ -354,6 +362,20 @@ namespace RPGArtifactsManager
             instanceEditor = new InstanceEditor(this, propertyNames);
             instanceEditor.RenderFields(types, editMode: true, id.ToString(), values);
             instanceEditor.Show();
+        }
+
+        private void cbx_edit_name_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbx_new_properties.Items.Clear();
+            var properties = databaseHandler.GetPropertiesByCategory(cbx_edit_name.SelectedItem.ToString());
+            lbx_new_properties.Items.AddRange(databaseHandler.GetProperties().ToArray());
+            for (int i = 0; i < lbx_new_properties.Items.Count; ++i)
+            {
+                if (properties.Contains(lbx_new_properties.Items[i].ToString()))
+                {
+                    lbx_new_properties.SetItemChecked(i, true);
+                }
+            }
         }
     }
 }

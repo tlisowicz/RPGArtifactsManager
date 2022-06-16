@@ -25,6 +25,7 @@ namespace RPGArtifactsManager.DatabaseRPG
             }
         }
 
+
         public List<string> GetPropertiesUniqueTypes()
         {
             using (var context = new RPGContext())
@@ -37,6 +38,7 @@ namespace RPGArtifactsManager.DatabaseRPG
                 return types;
             }
         }
+
 
         public string GetPropertyType(string propertyName)
         {
@@ -56,6 +58,7 @@ namespace RPGArtifactsManager.DatabaseRPG
             }
         }
 
+
         public List<string> GetPropertiesTypes(List<string> propertiesNames)
         {
             var result = new List<string>();
@@ -68,6 +71,8 @@ namespace RPGArtifactsManager.DatabaseRPG
             }
             return result;
         }
+
+
         public List<string> GetPropertiesByCategory( string categoryName)
         {
             var category = FindCategoryByName(categoryName);
@@ -88,6 +93,7 @@ namespace RPGArtifactsManager.DatabaseRPG
             }
         }
 
+
         private Category FindCategoryByName(string name)
         {
             using (var context = new RPGContext())
@@ -100,6 +106,8 @@ namespace RPGArtifactsManager.DatabaseRPG
                 return Category;
             }
         }
+
+
         public List<string> GetProperties()
         {
             using (var context = new RPGContext())
@@ -111,6 +119,7 @@ namespace RPGArtifactsManager.DatabaseRPG
                 return properties;
             }
         }
+
 
         public string GetCategoryNameByInstanceID(int id)
         {
@@ -130,6 +139,7 @@ namespace RPGArtifactsManager.DatabaseRPG
             }
         }
 
+
         public List<string> GetPropertyValuesByInstanceID(int id)
         {
             using (var context = new RPGContext())
@@ -142,6 +152,7 @@ namespace RPGArtifactsManager.DatabaseRPG
                 return values;
             }
         }
+
 
         public bool IsParent(string category)
         {
@@ -157,6 +168,8 @@ namespace RPGArtifactsManager.DatabaseRPG
                 return ChildCategories.Count == 0 ? false : true;
             }
         }
+
+
         public dynamic AddCategory(string category, string parentCategory, List<string> properties)
         {
             try
@@ -211,12 +224,13 @@ namespace RPGArtifactsManager.DatabaseRPG
                     }
                     context.SaveChanges();
                     return true;
-;                }
+                }
             } catch (Exception)
             {
                 return "An error has occurred while inserting data to database." ;
             }    
         }
+
 
         public dynamic AddProperty(string name, string type)
         {
@@ -247,6 +261,8 @@ namespace RPGArtifactsManager.DatabaseRPG
                 return "An error has occurred while inserting data to database.";
             }
         }
+
+
         public dynamic UpdateCategory(string name, string newName, List<string> properties)
         {
             try {
@@ -349,7 +365,9 @@ namespace RPGArtifactsManager.DatabaseRPG
             {
                 return $"An Error occurred while updating adding instance";
             }
-}
+        }
+
+
         public dynamic UpdateProperty(string propertyName, string newName, string type)
         {
             try
@@ -380,6 +398,7 @@ namespace RPGArtifactsManager.DatabaseRPG
                 return $"An Error occurred while updating an property with name: {propertyName}";
             }
         }
+
         public dynamic DeleteInstance(int instanceID)
         {
             try
@@ -409,6 +428,8 @@ namespace RPGArtifactsManager.DatabaseRPG
                 return $"An Error occurred while deleting an instance with id: {instanceID}";
             }  
         }
+
+
         public void DeleteCategory(string categoryName)
         {
             using (var context = new RPGContext())
@@ -429,6 +450,7 @@ namespace RPGArtifactsManager.DatabaseRPG
             }
         }
 
+
         public string GetCategoryNameByID(int ID)
         {
             using (var context = new RPGContext())
@@ -441,6 +463,8 @@ namespace RPGArtifactsManager.DatabaseRPG
                 return category;
             }
         }
+
+
         public dynamic DeleteProperty(string propertyName)
         {
             try
@@ -473,7 +497,9 @@ namespace RPGArtifactsManager.DatabaseRPG
             {
                 return $"An Error occurred while deleting property with name: {propertyName}";
             }
-        }  
+        }
+        
+
         public void SetTreeView(TreeView treeView)
         {
             treeView.Nodes.Clear();
@@ -496,6 +522,8 @@ namespace RPGArtifactsManager.DatabaseRPG
                 }
             }    
         }
+
+
         public void generateChild(Category category, TreeNode parentNode)
         {
             using (var context = new RPGContext())
@@ -517,6 +545,8 @@ namespace RPGArtifactsManager.DatabaseRPG
                 }
             }
         }
+
+
         public void ShowData(DataGridView dataGridView1,string catName)
         {
             using (var context = new RPGContext())
@@ -559,6 +589,7 @@ namespace RPGArtifactsManager.DatabaseRPG
                 fillGridView(dataGridView1, instances, properties);
             }
         }
+
 
         public void fillGridView(DataGridView dataGridView1, List<Instance> instances, List<Property> Properties)
         {
