@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPGArtifactsMenager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace RPGArtifactsManager
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new Viewer());
+            Application.Run(new LoginWindow());
 
         }
     }

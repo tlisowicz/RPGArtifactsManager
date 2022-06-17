@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using RPGArtifactsManager.DatabaseRPG.MainTables;
 using RPGArtifactsManager.DatabaseRPG.UtilTables;
-using RPGArtifactsMenager;
 namespace RPGArtifactsManager.DatabaseRPG
 {
     class DatabaseHandler
     {
-
+        
         public List<string> GetCategories()
         {
             using (var context = new RPGContext())

@@ -20,6 +20,9 @@
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
 
+            //Users
+            context.Users.AddOrUpdate(new User { UserID = 1, role = User.Role.ADMIN, Name = "admin", Password = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918" });
+
             //Categories
             context.Categories.AddOrUpdate(new Category() { CategoryID = 1, Name = "Playable" });
             context.Categories.AddOrUpdate(new Category() { CategoryID = 2, Name = "Monsters" });

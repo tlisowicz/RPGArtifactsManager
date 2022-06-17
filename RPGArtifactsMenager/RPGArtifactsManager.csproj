@@ -78,7 +78,9 @@
     <Compile Include="DatabaseRPG\MainTables\Instance.cs" />
     <Compile Include="DatabaseRPG\MainTables\Property.cs" />
     <Compile Include="DatabaseRPG\MainTables\PropertyType.cs" />
+    <Compile Include="DatabaseRPG\MainTables\User.cs" />
     <Compile Include="DatabaseRPG\RPGContext.cs" />
+    <Compile Include="DatabaseRPG\UserDatabaseHandler.cs" />
     <Compile Include="DatabaseRPG\UtilTables\CategoryProperty.cs" />
     <Compile Include="DatabaseRPG\UtilTables\InstanceProperty.cs" />
     <Compile Include="InstanceEditor.cs">
@@ -87,9 +89,19 @@
     <Compile Include="InstanceEditor.Designer.cs">
       <DependentUpon>InstanceEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginWindow.Designer.cs">
+      <DependentUpon>LoginWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202205261940291_mig1.cs" />
     <Compile Include="Migrations\202205261940291_mig1.designer.cs">
       <DependentUpon>202205261940291_mig1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206171814308_mig2.cs" />
+    <Compile Include="Migrations\202206171814308_mig2.designer.cs">
+      <DependentUpon>202206171814308_mig2.cs</DependentUpon>
     </Compile>
     <Compile Include="RPGContextDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -108,8 +120,14 @@
     <EmbeddedResource Include="InstanceEditor.resx">
       <DependentUpon>InstanceEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginWindow.resx">
+      <DependentUpon>LoginWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205261940291_mig1.resx">
       <DependentUpon>202205261940291_mig1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206171814308_mig2.resx">
+      <DependentUpon>202206171814308_mig2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Viewer.resx">
       <DependentUpon>Viewer.cs</DependentUpon>

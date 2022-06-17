@@ -29,25 +29,25 @@ namespace RPGArtifactsManager
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Mages");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Humans", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Elves");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Playable", new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Dragons");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Orcs");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Ents");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Monsters", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7});
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Caves");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Forests", new System.Windows.Forms.TreeNode[] {
-            treeNode9});
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Enviroment", new System.Windows.Forms.TreeNode[] {
-            treeNode10});
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Mages");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Humans", new System.Windows.Forms.TreeNode[] {
+            treeNode12});
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Elves");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Playable", new System.Windows.Forms.TreeNode[] {
+            treeNode13,
+            treeNode14});
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Dragons");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Orcs");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Ents");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Monsters", new System.Windows.Forms.TreeNode[] {
+            treeNode16,
+            treeNode17,
+            treeNode18});
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Caves");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Forests", new System.Windows.Forms.TreeNode[] {
+            treeNode20});
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Enviroment", new System.Windows.Forms.TreeNode[] {
+            treeNode21});
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label8 = new System.Windows.Forms.Label();
@@ -107,17 +107,42 @@ namespace RPGArtifactsManager
             this.tbx_name = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_add = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label32 = new System.Windows.Forms.Label();
+            this.cbx_user_add_role = new System.Windows.Forms.ComboBox();
+            this.btn_user_add = new System.Windows.Forms.Button();
+            this.label31 = new System.Windows.Forms.Label();
+            this.tbx_add_user_pwd = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.tbx_add_user_name = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.cbx_user_edit_role = new System.Windows.Forms.ComboBox();
+            this.btn_user_edit = new System.Windows.Forms.Button();
+            this.tbx_user_edit_pwd = new System.Windows.Forms.TextBox();
+            this.tbx_user_edit_name = new System.Windows.Forms.TextBox();
+            this.cbx_user_edit = new System.Windows.Forms.ComboBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.cb_user_change_name = new System.Windows.Forms.CheckBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.cbx_user_delete = new System.Windows.Forms.ComboBox();
+            this.btn_user_delete = new System.Windows.Forms.Button();
+            this.cb_user_edit_pwd = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -306,32 +331,32 @@ namespace RPGArtifactsManager
             // 
             this.treeView1.Location = new System.Drawing.Point(49, 72);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Mages";
-            treeNode1.Text = "Mages";
-            treeNode2.Name = "Humans";
-            treeNode2.Text = "Humans";
-            treeNode3.Name = "Elves";
-            treeNode3.Text = "Elves";
-            treeNode4.Name = "Playable";
-            treeNode4.Text = "Playable";
-            treeNode5.Name = "Dragons";
-            treeNode5.Text = "Dragons";
-            treeNode6.Name = "Orcs";
-            treeNode6.Text = "Orcs";
-            treeNode7.Name = "Ents";
-            treeNode7.Text = "Ents";
-            treeNode8.Name = "Monsters";
-            treeNode8.Text = "Monsters";
-            treeNode9.Name = "Caves";
-            treeNode9.Text = "Caves";
-            treeNode10.Name = "Forests";
-            treeNode10.Text = "Forests";
-            treeNode11.Name = "Enviroment";
-            treeNode11.Text = "Enviroment";
+            treeNode12.Name = "Mages";
+            treeNode12.Text = "Mages";
+            treeNode13.Name = "Humans";
+            treeNode13.Text = "Humans";
+            treeNode14.Name = "Elves";
+            treeNode14.Text = "Elves";
+            treeNode15.Name = "Playable";
+            treeNode15.Text = "Playable";
+            treeNode16.Name = "Dragons";
+            treeNode16.Text = "Dragons";
+            treeNode17.Name = "Orcs";
+            treeNode17.Text = "Orcs";
+            treeNode18.Name = "Ents";
+            treeNode18.Text = "Ents";
+            treeNode19.Name = "Monsters";
+            treeNode19.Text = "Monsters";
+            treeNode20.Name = "Caves";
+            treeNode20.Text = "Caves";
+            treeNode21.Name = "Forests";
+            treeNode21.Text = "Forests";
+            treeNode22.Name = "Enviroment";
+            treeNode22.Text = "Enviroment";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode8,
-            treeNode11});
+            treeNode15,
+            treeNode19,
+            treeNode22});
             this.treeView1.Size = new System.Drawing.Size(214, 177);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -738,6 +763,242 @@ namespace RPGArtifactsManager
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.cb_user_edit_pwd);
+            this.tabPage3.Controls.Add(this.btn_user_delete);
+            this.tabPage3.Controls.Add(this.label35);
+            this.tabPage3.Controls.Add(this.cbx_user_delete);
+            this.tabPage3.Controls.Add(this.cb_user_change_name);
+            this.tabPage3.Controls.Add(this.label36);
+            this.tabPage3.Controls.Add(this.cbx_user_edit);
+            this.tabPage3.Controls.Add(this.tbx_user_edit_pwd);
+            this.tabPage3.Controls.Add(this.tbx_user_edit_name);
+            this.tabPage3.Controls.Add(this.label33);
+            this.tabPage3.Controls.Add(this.cbx_user_edit_role);
+            this.tabPage3.Controls.Add(this.btn_user_edit);
+            this.tabPage3.Controls.Add(this.label32);
+            this.tabPage3.Controls.Add(this.cbx_user_add_role);
+            this.tabPage3.Controls.Add(this.btn_user_add);
+            this.tabPage3.Controls.Add(this.label31);
+            this.tabPage3.Controls.Add(this.tbx_add_user_pwd);
+            this.tabPage3.Controls.Add(this.label30);
+            this.tabPage3.Controls.Add(this.tbx_add_user_name);
+            this.tabPage3.Controls.Add(this.label24);
+            this.tabPage3.Controls.Add(this.label28);
+            this.tabPage3.Controls.Add(this.label29);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1225, 724);
+            this.tabPage3.TabIndex = 4;
+            this.tabPage3.Text = "Manage users\' accounts";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(245, 306);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(32, 13);
+            this.label32.TabIndex = 43;
+            this.label32.Text = "Role:";
+            // 
+            // cbx_user_add_role
+            // 
+            this.cbx_user_add_role.FormattingEnabled = true;
+            this.cbx_user_add_role.Items.AddRange(new object[] {
+            "USER",
+            "ADMIN"});
+            this.cbx_user_add_role.Location = new System.Drawing.Point(303, 303);
+            this.cbx_user_add_role.Name = "cbx_user_add_role";
+            this.cbx_user_add_role.Size = new System.Drawing.Size(100, 21);
+            this.cbx_user_add_role.TabIndex = 42;
+            // 
+            // btn_user_add
+            // 
+            this.btn_user_add.Location = new System.Drawing.Point(303, 341);
+            this.btn_user_add.Name = "btn_user_add";
+            this.btn_user_add.Size = new System.Drawing.Size(100, 23);
+            this.btn_user_add.TabIndex = 41;
+            this.btn_user_add.Text = "Add";
+            this.btn_user_add.UseVisualStyleBackColor = true;
+            this.btn_user_add.Click += new System.EventHandler(this.btn_user_add_Click);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(245, 268);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(56, 13);
+            this.label31.TabIndex = 40;
+            this.label31.Text = "Password:";
+            // 
+            // tbx_add_user_pwd
+            // 
+            this.tbx_add_user_pwd.Location = new System.Drawing.Point(303, 265);
+            this.tbx_add_user_pwd.Name = "tbx_add_user_pwd";
+            this.tbx_add_user_pwd.Size = new System.Drawing.Size(100, 20);
+            this.tbx_add_user_pwd.TabIndex = 39;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(245, 228);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(38, 13);
+            this.label30.TabIndex = 38;
+            this.label30.Text = "Name:";
+            // 
+            // tbx_add_user_name
+            // 
+            this.tbx_add_user_name.Location = new System.Drawing.Point(303, 225);
+            this.tbx_add_user_name.Name = "tbx_add_user_name";
+            this.tbx_add_user_name.Size = new System.Drawing.Size(100, 20);
+            this.tbx_add_user_name.TabIndex = 37;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label24.Location = new System.Drawing.Point(519, 177);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(131, 25);
+            this.label24.TabIndex = 36;
+            this.label24.Text = "Edit account";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label28.Location = new System.Drawing.Point(743, 177);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(156, 25);
+            this.label28.TabIndex = 35;
+            this.label28.Text = "Delete account";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label29.Location = new System.Drawing.Point(279, 177);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(158, 25);
+            this.label29.TabIndex = 34;
+            this.label29.Text = "Create account";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(476, 341);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(32, 13);
+            this.label33.TabIndex = 46;
+            this.label33.Text = "Role:";
+            // 
+            // cbx_user_edit_role
+            // 
+            this.cbx_user_edit_role.FormattingEnabled = true;
+            this.cbx_user_edit_role.Items.AddRange(new object[] {
+            "USER",
+            "ADMIN"});
+            this.cbx_user_edit_role.Location = new System.Drawing.Point(540, 339);
+            this.cbx_user_edit_role.Name = "cbx_user_edit_role";
+            this.cbx_user_edit_role.Size = new System.Drawing.Size(100, 21);
+            this.cbx_user_edit_role.TabIndex = 45;
+            // 
+            // btn_user_edit
+            // 
+            this.btn_user_edit.Location = new System.Drawing.Point(540, 377);
+            this.btn_user_edit.Name = "btn_user_edit";
+            this.btn_user_edit.Size = new System.Drawing.Size(100, 23);
+            this.btn_user_edit.TabIndex = 44;
+            this.btn_user_edit.Text = "Edit";
+            this.btn_user_edit.UseVisualStyleBackColor = true;
+            this.btn_user_edit.Click += new System.EventHandler(this.btn_user_edit_Click);
+            // 
+            // tbx_user_edit_pwd
+            // 
+            this.tbx_user_edit_pwd.Enabled = false;
+            this.tbx_user_edit_pwd.Location = new System.Drawing.Point(540, 301);
+            this.tbx_user_edit_pwd.Name = "tbx_user_edit_pwd";
+            this.tbx_user_edit_pwd.Size = new System.Drawing.Size(100, 20);
+            this.tbx_user_edit_pwd.TabIndex = 49;
+            // 
+            // tbx_user_edit_name
+            // 
+            this.tbx_user_edit_name.Enabled = false;
+            this.tbx_user_edit_name.Location = new System.Drawing.Point(540, 261);
+            this.tbx_user_edit_name.Name = "tbx_user_edit_name";
+            this.tbx_user_edit_name.Size = new System.Drawing.Size(100, 20);
+            this.tbx_user_edit_name.TabIndex = 47;
+            // 
+            // cbx_user_edit
+            // 
+            this.cbx_user_edit.FormattingEnabled = true;
+            this.cbx_user_edit.Location = new System.Drawing.Point(540, 220);
+            this.cbx_user_edit.Name = "cbx_user_edit";
+            this.cbx_user_edit.Size = new System.Drawing.Size(100, 21);
+            this.cbx_user_edit.TabIndex = 51;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(476, 223);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(38, 13);
+            this.label36.TabIndex = 52;
+            this.label36.Text = "Name:";
+            // 
+            // cb_user_change_name
+            // 
+            this.cb_user_change_name.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cb_user_change_name.Location = new System.Drawing.Point(461, 250);
+            this.cb_user_change_name.Name = "cb_user_change_name";
+            this.cb_user_change_name.Size = new System.Drawing.Size(73, 42);
+            this.cb_user_change_name.TabIndex = 53;
+            this.cb_user_change_name.Text = "Edit name";
+            this.cb_user_change_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cb_user_change_name.UseVisualStyleBackColor = true;
+            this.cb_user_change_name.CheckedChanged += new System.EventHandler(this.cb_user_change_name_CheckedChanged);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(714, 223);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(38, 13);
+            this.label35.TabIndex = 55;
+            this.label35.Text = "Name:";
+            // 
+            // cbx_user_delete
+            // 
+            this.cbx_user_delete.FormattingEnabled = true;
+            this.cbx_user_delete.Location = new System.Drawing.Point(772, 220);
+            this.cbx_user_delete.Name = "cbx_user_delete";
+            this.cbx_user_delete.Size = new System.Drawing.Size(100, 21);
+            this.cbx_user_delete.TabIndex = 54;
+            // 
+            // btn_user_delete
+            // 
+            this.btn_user_delete.Location = new System.Drawing.Point(772, 268);
+            this.btn_user_delete.Name = "btn_user_delete";
+            this.btn_user_delete.Size = new System.Drawing.Size(100, 23);
+            this.btn_user_delete.TabIndex = 56;
+            this.btn_user_delete.Text = "Delete";
+            this.btn_user_delete.UseVisualStyleBackColor = true;
+            this.btn_user_delete.Click += new System.EventHandler(this.btn_user_delete_Click);
+            // 
+            // cb_user_edit_pwd
+            // 
+            this.cb_user_edit_pwd.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cb_user_edit_pwd.Location = new System.Drawing.Point(461, 292);
+            this.cb_user_edit_pwd.Name = "cb_user_edit_pwd";
+            this.cb_user_edit_pwd.Size = new System.Drawing.Size(73, 42);
+            this.cb_user_edit_pwd.TabIndex = 57;
+            this.cb_user_edit_pwd.Text = "Edit password";
+            this.cb_user_edit_pwd.UseVisualStyleBackColor = true;
+            this.cb_user_edit_pwd.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Viewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -746,6 +1007,7 @@ namespace RPGArtifactsManager
             this.Controls.Add(this.tabControl1);
             this.Name = "Viewer";
             this.Text = "RPCArtifactsDatabase";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Viewer_FormClosing);
             this.Load += new System.EventHandler(this.Viewer_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -754,6 +1016,8 @@ namespace RPGArtifactsManager
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -818,6 +1082,29 @@ namespace RPGArtifactsManager
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbx_ins_edit;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.ComboBox cbx_user_add_role;
+        private System.Windows.Forms.Button btn_user_add;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TextBox tbx_add_user_pwd;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox tbx_add_user_name;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Button btn_user_delete;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.ComboBox cbx_user_delete;
+        private System.Windows.Forms.CheckBox cb_user_change_name;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.ComboBox cbx_user_edit;
+        private System.Windows.Forms.TextBox tbx_user_edit_pwd;
+        private System.Windows.Forms.TextBox tbx_user_edit_name;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.ComboBox cbx_user_edit_role;
+        private System.Windows.Forms.Button btn_user_edit;
+        private System.Windows.Forms.CheckBox cb_user_edit_pwd;
     }
 }
 

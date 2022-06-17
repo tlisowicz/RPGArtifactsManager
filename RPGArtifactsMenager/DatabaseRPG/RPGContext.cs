@@ -11,6 +11,7 @@ namespace RPGArtifactsManager.DatabaseRPG
 {
     class RPGContext: DbContext
     {
+        public DbSet<User> Users { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Instance> Instances { get; set; }
         public DbSet<Property> Properties { get; set; }
